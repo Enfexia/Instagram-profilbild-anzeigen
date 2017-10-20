@@ -19,7 +19,7 @@ img , #dynamic{
 }
 /*Material Input Design*/
 .nav{
-  height:25em;
+  height:18em;
   transition:0.4s ease all;
   -moz-transition:0.4s ease all;
   -webkit-transition:0.4s ease all;
@@ -90,7 +90,7 @@ input:focus ~ label, input:valid ~ label 		{
   display:block;
 }
 .up{
-  height:10em;
+  height:5em;
   transition:0.4s ease all;
   -moz-transition:0.4s ease all;
   -webkit-transition:0.4s ease all;
