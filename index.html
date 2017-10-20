@@ -9,21 +9,36 @@
   <title>Document</title>
 </head>
 <body>
+
+  <input type="text" name="kad" id="kad" placeholder="@kullanıcıadı">
+  <button type="button" name="button" onclick="ara()">Bul</button>
+  <div id="imagediv"></div>
   <script type="text/javascript">
-  $.ajax({
-         type: "GET",
-         url: "https://www.instagram.com",
-         contentType: "application/json",
-         crossDomain: true,
-         headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-    },
-         beforeSend: function(xhr, settings){
-                 xhr.setRequestHeader("some_custom_header", "foo");},
-         success: function(data){
-             $("#output_iframe_id").attr('srcdoc',data)
-         }
-     });
+
+  function ara() {
+    var kad = $('#kad').val();
+    $.ajax ({
+      url: 'http://iframe.ly/api/oembed?url=https://www.instagram.com/' + kad + '/&api_key=da7a5c0ada970c361adf15',
+      dataType: 'JSONP',
+      jsonpCallback: 'callback',
+      type: 'GET',
+      success: (data) => {
+        var img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
+        var button = $('<form method="get" action="'+ data.thumbnail_url +'"><button type="submit">indir</button></form>');
+        img.attr('src', data.thumbnail_url);
+
+        img.appendTo('#imagediv');
+        button.appendTo('#imagediv')
+        img.attr('width',600);
+        img.attr('height',600);
+
+      },
+      error: () => {
+        alert("böyle biri yok :'(")
+      }
+    });
+  }
+
 
   </script>
 </body>
