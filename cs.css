@@ -1,0 +1,119 @@
+.body__inner{
+  width: 100vw;
+  height: 100vh;
+  position:absolute;
+  z-index: -99999;
+}
+
+body {
+  margin: 0;
+}
+
+img , #dynamic{
+  width: 20.75em;
+  height: 20.75em;
+}
+#imagediv{
+  top:3.625em;
+  position: relative;
+}
+/*Material Input Design*/
+.nav{
+  height:25em;
+  transition:0.4s ease all;
+  -moz-transition:0.4s ease all;
+  -webkit-transition:0.4s ease all;
+}
+.container{
+  font-family: 'Roboto';
+  width: 100%;;
+  margin: 0 auto;
+  text-align: center;
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+
+* {
+  box-sizing:border-box;
+ }
+
+/* form starting stylings ------------------------------- */
+.group 			  {
+  position:relative;
+  marg
+  margin-bottom:3em;
+}
+input 				{
+  font-size:18px;
+  padding:0.625em  0.625em 0.625em 0.3125em;
+  display:block;
+  color:white;
+  width:18.75em;
+  border:none;
+  background-color: transparent;
+  border-bottom:1px solid #fff;
+}
+input:focus {
+  outline:none;
+}
+
+/* LABEL ======================================= */
+label {
+  font-family:'Arial';
+  color:#fff;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:0.5125em;
+  top:0.625em;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  left: -2px;
+  font-size:14px;
+  color:#fff;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{
+  position:relative;
+  display:block;
+}
+.up{
+  height:10em;
+  transition:0.4s ease all;
+  -moz-transition:0.4s ease all;
+  -webkit-transition:0.4s ease all;
+}
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#fff;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}

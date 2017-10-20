@@ -5,16 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>Document</title>
+
+<link rel="stylesheet" href="cs.css">
 </head>
 <body>
+<div class="body__inner"></div>
+<div class="nav">  </div>
+  <div class="container">
+      <div class="group">
+        <input type="text" autocomplete="off" name="kad" id="kad" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>@kullanıcıadı</label>
+        <div id="imagediv"></div>
+      </div>
 
-  <input type="text" name="kad" id="kad" placeholder="@kullanıcıadı">
-  <button type="button" name="button" onclick="ara()">Bul</button>
-  <div id="imagediv"></div>
+
   <script type="text/javascript">
+  $('#kad').keyup(function(e){
+    if(e.keyCode == 13)
+    {
+$( "#dynamic" ).remove();
 
+ara();
+    }
+});
   function ara() {
     var kad = $('#kad').val();
     $.ajax ({
@@ -24,22 +43,25 @@
       type: 'GET',
       success: (data) => {
         var img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
-        var button = $('<form method="get" action="'+ data.thumbnail_url +'"><button type="submit">indir</button></form>');
+        //var button = $('<form method="get" action="'+ data.thumbnail_url +'"><button type="submit">indir</button></form>');
         img.attr('src', data.thumbnail_url);
 
         img.appendTo('#imagediv');
-        button.appendTo('#imagediv')
-        img.attr('width',600);
-        img.attr('height',600);
+        //button.appendTo('#imagediv')
+        if($( ".nav" ).hasClass( "up" ) == true){
 
+        }else{
+          $( ".nav" ).addClass( "up" );
+        }
       },
       error: () => {
-        alert("böyle biri yok :'(")
+        alert("böyle biri yok :'(");
+        $( ".nav" ).removeClass( "up" );
       }
     });
   }
 
-
   </script>
+  <script src="bg.js"></script>
 </body>
 </html>
