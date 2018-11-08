@@ -8,7 +8,7 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <title>Insatram ProfilePhoto Finder</title>
+  <title>Instagram profilbild anzeigen</title>
 
 <link rel="stylesheet" href="cs.css">
 </head>
@@ -20,7 +20,7 @@
         <input type="text" autocomplete="off" name="kad" id="kad" required>
         <span class="highlight"></span>
         <span class="bar"></span>
-        <label>@kullanıcıadı</label>
+        <label>@Benutzername</label>
         <div id="imagediv"></div>
       </div>
 
@@ -55,7 +55,7 @@ ara();
         }
       },
       error: () => {
-        alert("böyle biri yok :'(");
+        alert("Benutzer existiert nicht :'(");
         $( ".nav" ).removeClass( "up" );
       }
     });
